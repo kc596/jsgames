@@ -1,6 +1,6 @@
-import { Shape } from "./Shape";
+import { Shape2D } from "./Shape2D";
 
-export class Square implements Shape {
+export class Square implements Shape2D {
     side: number
     constructor(side: number) {
         this.side = side;

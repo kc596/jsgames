@@ -1,6 +1,6 @@
-import { Shape } from "./Shape";
+import { Shape2D } from "./Shape2D";
 
-export class Circle implements Shape {
+export class Circle implements Shape2D {
     radius: number
 
     constructor(radius: number) {

@@ -1,6 +1,6 @@
 # jsgames
 
-## Game 1
+### Game 1
 
 - Prints a starry pattern in console.
 
@@ -21,7 +21,7 @@
 *                          *
 </pre>
 
-## Game 2
+### Game 2
 
 - Prints another starry pattern in console. Uses starOrSpace() function from game 1.
 
@@ -43,15 +43,25 @@
 </pre>
 
 
-## Game 3
+### Game 3
 
 - Contains utils for shape and area
 
-## Game 4
+### Game 4
 
 - Contains utils for volume using area : cube(x), sphere(x)
 
-## Game 5
+### Game 5
 
 - Uses game 2 and volume to return volumeOfStarryPattern()
 - Another function hyperCube(x) = cube(x) * x
+
+
+## Babel
+
+The main things Babel can do:
+
+- Transform syntax
+- Polyfill features that are missing in your target environment (through @babel/polyfill)
+- Source code transformations (codemods)
+

@@ -1,6 +1,6 @@
-import { Shape } from "./Shape";
+import { Shape2D } from "./Shape2D";
 
-export class Rectangle implements Shape {
+export class Rectangle implements Shape2D {
     length: number
     breadth: number
 

@@ -1,7 +1,7 @@
-import { Shape } from "./Shape";
+import { Shape2D } from "./Shape2D";
 
 // RtTraingle is not used anywhere
-export class RtTriangle implements Shape {
+export class RtTriangle implements Shape2D {
     base: number
     height: number
 
