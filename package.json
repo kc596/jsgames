@@ -1,0 +1,22 @@
+{
+  "name": "jsgames",
+  "version": "1.0.0",
+  "description": "Consists of many little javascript games",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kc596/jsgames.git"
+  },
+  "keywords": [
+    "jsgames"
+  ],
+  "author": "Kunal Chaudhary",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kc596/jsgames/issues"
+  },
+  "homepage": "https://github.com/kc596/jsgames#readme"
+}
