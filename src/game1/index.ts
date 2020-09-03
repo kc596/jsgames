@@ -24,8 +24,5 @@ export function pattern(n: number = 7): string {
         }
         result += "\n";
     }
-
     return result;
 }
-
-// console.log(pattern(7));
