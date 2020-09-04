@@ -26,3 +26,7 @@ export function pattern(n: number = 7): string {
     }
     return result;
 }
+
+console.log("Executing Game2!");
+console.log(pattern(3));
+console.log("Game2 finished!");

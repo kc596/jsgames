@@ -2,9 +2,10 @@
   "name": "jsgames",
   "version": "1.0.0",
   "description": "Consists of many little javascript games",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "clear": "rimraf artifacts dist"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,18 @@
   "bugs": {
     "url": "https://github.com/kc596/jsgames/issues"
   },
-  "homepage": "https://github.com/kc596/jsgames#readme"
+  "homepage": "https://github.com/kc596/jsgames#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.11.5",
+    "fastexponent": "^2.0.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
 }
