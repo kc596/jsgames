@@ -15,9 +15,15 @@ export function pow2(exponent: number): number {
     return expo(2, exponent);
 }
 
+let results: Array<[string, string]> = [
+    ["hypercube(3)", ""+hypercube(3)],
+    ["pow9(3)", ""+pow9(3)],
+    ["pow2(10)", ""+pow2(10)],
+    ["Pattern imported from Game2 in Game6\n", pattern(5)],
+];
 console.log("Executing Game6!");
-console.log("hypercube(3)", hypercube(3));
-console.log("pow9(3)", pow9(3));
-console.log("pow2(10)", pow2(10));
-console.log("Pattern imported from Game2 in Game6", pattern(5));
+results.forEach((element: any) => {
+    console.log(element[0], ":", element[1]);
+});
 console.log("Game6 finished!");
+//Promise.resolve().finally();
