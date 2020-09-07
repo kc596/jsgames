@@ -116,9 +116,12 @@ Examples on size is shown below in table :-
 
 ### @babel/env preset 
 
-Example affect on size of bundle:
-**bugfixes: false** : original size: 26912 / gzipped size: 10483
-**bugfixes: true** : original size: 26685 / gzipped size: 10454
+Example affect on size of bundle:  
+
+**bugfixes: false** : original size: 26912 / gzipped size: 10483  
+
+**bugfixes: true** : original size: 26685 / gzipped size: 10454  
+
 
 It is worth pointing out that this reduciton happend when targettig modern browsers.
 
@@ -146,8 +149,10 @@ targets: {
 }
 ```
 
-**bugfixes: false** : original size: 54342 / gzipped size: 21551
-**bugfixes: true** : original size: 54342 / gzipped size: 21551
+**bugfixes: false** : original size: 54342 / gzipped size: 21551  
+
+**bugfixes: true** : original size: 54342 / gzipped size: 21551  
+
 
 ## Webpack
 
