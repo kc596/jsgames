@@ -1,4 +1,8 @@
 import { starOrSpace } from "./util";
+import { author, trusted } from "./credits";
+
+const user = author;
+const isTrusted = trusted;
 
 export function pattern(n: number = 7): string {
     let result: string = "";

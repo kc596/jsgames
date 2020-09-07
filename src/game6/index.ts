@@ -26,4 +26,4 @@ results.forEach((element: any) => {
     console.log(element[0], ":", element[1]);
 });
 console.log("Game6 finished!");
-//Promise.resolve().finally();
+Promise.resolve().finally();

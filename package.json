@@ -6,7 +6,7 @@
   "scripts": {
     "clear": "rimraf artifacts dist lib compiled",
     "tsc": "tsc",
-    "webpack": "webpack",
+    "webpack": "webpack --config-name webpack.config",
     "build": "run-s clear tsc webpack"
   },
   "repository": {

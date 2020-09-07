@@ -1,6 +1,5 @@
 import { Shape2D } from "./Shape2D";
 
-// RtTraingle is not used anywhere
 export class RtTriangle implements Shape2D {
     base: number
     height: number
@@ -11,6 +10,7 @@ export class RtTriangle implements Shape2D {
     }
 
     area(): number {
+        Promise.resolve().finally();
         return 0.5 * this.base * this.height;
     }
 }

@@ -1,6 +1,10 @@
 import { Circle } from "./2dinterfaces/Circle";
 import { Square } from "./2dinterfaces/Square";
 import { Rectangle } from "./2dinterfaces/Rectangle";
+import { RtTriangle } from "./2dinterfaces/RtTriangle";
+
+const someRtTriange = new RtTriangle(1,1);
+someRtTriange.area();
 
 console.log("Executing Game3!");
 
