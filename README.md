@@ -95,6 +95,60 @@ This means if two transforms both visit the "Program" node, the transforms will 
 - Plugin ordering is first to last.
 - Preset ordering is reversed (last to first).
 
+### @babel/plugin-transform-runtime
+
+Babel uses very small helpers for common functions such as _extend. By default this will be added to every file that requires it. This duplication is sometimes unnecessary, especially when application is spread out over multiple files.
+
+@babel/plugin-transform-runtime plugin makes all of the helpers will reference the module @babel/runtime to avoid duplication across your compiled output. The runtime will be compiled into your build.
+
+Another purpose of this transformer is to create a sandboxed environment for your code. If you directly import core-js or @babel/polyfill and the built-ins it provides such as Promise, Set and Map, those will pollute the global scope.
+
+Examples on size is shown below in table :-
+| Plugin | Options | Size (orig./gzip) in B | Time (s) |
+| ------ | ------ | ------ | ------ |
+| - | - | 69385 / 26890| 2.4 |
+| plugin-transform-runtime | default | 54994 / 21806 | 2.1 - 2.2 |
+| plugin-transform-runtime | corejs:3 | 82100 / 31239 | 2.8 |
+| plugin-transform-runtime | helpers:false | 69408 / 26896 | 2.5 |
+| plugin-transform-runtime | regenerator:false | 54969 / 21784 | 2.2 |
+| plugin-transform-runtime | useESModules:true | 54667 / 21673 | 2.2 |
+
+
+### @babel/env preset 
+
+Example affect on size of bundle:
+**bugfixes: false** : original size: 26912 / gzipped size: 10483
+**bugfixes: true** : original size: 26685 / gzipped size: 10454
+
+It is worth pointing out that this reduciton happend when targettig modern browsers.
+
+```js
+targets: {
+    "browsers": [
+        "Chrome >= 78",
+        "ChromeAndroid >= 78",
+        "Firefox >= 69",
+        "Safari >= 12",
+    ],
+}
+```
+
+However, same code for older targets had no size reduction.
+
+```js
+targets: {
+    "browsers": [
+        "Chrome >= 40",
+        "ChromeAndroid >= 40",
+        "Firefox >= 40",
+        "Safari >= 9",
+    ],
+}
+```
+
+**bugfixes: false** : original size: 54342 / gzipped size: 21551
+**bugfixes: true** : original size: 54342 / gzipped size: 21551
+
 ## Webpack
 
 

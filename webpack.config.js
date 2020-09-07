@@ -1,9 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');     /* to access built-in plugins */
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;   /* https://github.com/webpack-contrib/webpack-bundle-analyzer */
 const babelConfig = require("./babel1.config");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;   /* https://github.com/webpack-contrib/webpack-bundle-analyzer */
 const TerserPlugin = require('terser-webpack-plugin');
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 
+const smp = new SpeedMeasurePlugin();
 const enableBundleAnalyzer = false;
 const mode = "production";
 
@@ -54,13 +56,13 @@ const moduleConfig = {
     }]
 };
 
-const config = {
+const config = smp.wrap({
     "mode": mode,
     "entry": entry,
     "output": output,
     "plugins": plugins,
     "experiments": experiments,
     "module": moduleConfig
-};
+});
 
 module.exports = config;
