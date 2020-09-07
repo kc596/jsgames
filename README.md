@@ -64,6 +64,9 @@ n = 7
 - Also uses fastexponent directly to calc pow2()
 - Uses game2 to print pattern for n=5
 
+### Game 7
+
+- Snake game
 
 ## Babel
 

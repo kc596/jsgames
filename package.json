@@ -4,8 +4,10 @@
   "description": "Consists of many little javascript games",
   "private": true,
   "scripts": {
+    "clear": "rimraf artifacts dist lib compiled",
     "tsc": "tsc",
-    "clear": "rimraf artifacts dist lib compiled"
+    "webpack": "webpack",
+    "build": "run-s clear tsc webpack"
   },
   "repository": {
     "type": "git",

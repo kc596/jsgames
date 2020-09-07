@@ -9,13 +9,14 @@ const mode = "production";
 
 /* Do not create an entry for vendors or other stuff that is not the starting point of execution. */
 const entry = {
-    pre_babel: [
+    babel1: [
         "./artifacts/exnext/game1/index.js",
         "./artifacts/exnext/game2/index.js",
         "./artifacts/exnext/game3/index.js",
         "./artifacts/exnext/game4/index.js",
         "./artifacts/exnext/game5/index.js",
         "./artifacts/exnext/game6/index.js",
+        "./artifacts/exnext/game7/index.js",
     ],
 };
 
