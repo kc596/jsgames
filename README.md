@@ -123,7 +123,7 @@ Example affect on size of bundle:
 **bugfixes: true** : original size: 26685 / gzipped size: 10454  
 
 
-It is worth pointing out that this reduciton happend when targettig modern browsers.
+It is worth pointing out that this reduciton happened when targettig modern browsers.
 
 ```js
 targets: {
@@ -136,7 +136,7 @@ targets: {
 }
 ```
 
-However, same code for older targets had no size reduction.
+However, same code for older targets had no size reduction in our case. It's because it was mostly replacing concat with new way to include variables in string but *`* character is not supported (illegal) in older browsers.
 
 ```js
 targets: {
@@ -152,6 +152,13 @@ targets: {
 **bugfixes: false** : original size: 54342 / gzipped size: 21551  
 
 **bugfixes: true** : original size: 54342 / gzipped size: 21551  
+
+<u>*Sample difference caused by this config:*</u>
+
+```
+this.el.style.top = "".concat(y, "px"); //bugfix: false
+this.el.style.top = `${y}px`;           //bugfix: true
+```
 
 
 ## Webpack
