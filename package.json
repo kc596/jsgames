@@ -4,10 +4,14 @@
   "description": "Consists of many little javascript games",
   "private": true,
   "scripts": {
-    "clear": "rimraf artifacts dist lib compiled",
+    "clear": "rimraf artifacts lib compiled compiled1 compiled2 dist dist-pre dist-wp-wp",
     "tsc": "tsc",
-    "webpack": "webpack --config-name webpack.config",
-    "build": "run-s clear tsc webpack"
+    "babel1": "babel artifacts/ --config-file ./babel1.config.js  --out-dir compiled1/",
+    "webpack1": "webpack --config webpack.babel1.js",
+    "webpacksplit": "webpack --config webpack.splitchunks.js",
+    "webpack-pre": "webpack --config webpack.pre.js",
+    "webpack+webpack": "webpack --config webpack+webpack.babel1.js",
+    "build": "run-s clear tsc webpack1"
   },
   "repository": {
     "type": "git",

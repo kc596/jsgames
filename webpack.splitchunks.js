@@ -6,25 +6,21 @@ const TerserPlugin = require('terser-webpack-plugin');
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 
 const smp = new SpeedMeasurePlugin();
-const enableBundleAnalyzer = false;
+const enableBundleAnalyzer = true;
 const mode = "production";
 
 /* Do not create an entry for vendors or other stuff that is not the starting point of execution. */
 const entry = {
-    babel1: [
-        "./artifacts/exnext/game1/index.js",
-        "./artifacts/exnext/game2/index.js",
-        "./artifacts/exnext/game3/index.js",
-        "./artifacts/exnext/game4/index.js",
-        "./artifacts/exnext/game5/index.js",
-        "./artifacts/exnext/game6/index.js",
-        "./artifacts/exnext/game7/index.js",
-    ],
+    game1: "./artifacts/exnext/game1/index.js",
+    game2: "./artifacts/exnext/game2/index.js",
+    game3: "./artifacts/exnext/game3/index.js",
+    game4: "./artifacts/exnext/game4/index.js",
+    game5: "./artifacts/exnext/game5/index.js",
+    game6: "./artifacts/exnext/game6/index.js",
+    game7: "./artifacts/exnext/game7/index.js",
 };
 
 const output = {
-    /* Allow outputting JavaScript files as module type. It sets output.iife to false, output.libraryTarget to 'module', output.scriptType to 'module' and terserOptions.module to true. */
-    module: true,
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js',
 };
@@ -35,8 +31,6 @@ if (enableBundleAnalyzer) {
 }
 
 const experiments = {
-    /* Enables the use of output.module configuration */
-    "outputModule": true
 };
 
 const moduleConfig = {
@@ -56,13 +50,20 @@ const moduleConfig = {
     }]
 };
 
+const optimization = {
+    splitChunks: {
+        chunks: "all"
+    }
+};
+
 const config = smp.wrap({
     "mode": mode,
     "entry": entry,
     "output": output,
     "plugins": plugins,
     "experiments": experiments,
-    "module": moduleConfig
+    "module": moduleConfig,
+    "optimization": optimization
 });
 
 module.exports = config;

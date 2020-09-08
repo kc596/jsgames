@@ -49,7 +49,7 @@ const presets = [
             useBuiltIns: "usage",
             corejs: 3,
             modules: false,
-            bugfixes: true,
+            bugfixes: true, // TODO: find equivalent config/plugin in Terser
             /* doc: defaults to false. @babel/preset-env tries to compile the broken syntax to the closest non-broken modern syntax supported by your target browsers. this can lead to a significant size reduction in the compiled app */
         }
     ]
