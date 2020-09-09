@@ -37,15 +37,15 @@ const presets = [
     [
         "@babel/env",
         {
-            targets: "> 0.25%, not dead",
-            // targets: {
-            //     "browsers": [
-            //         "Chrome >= 78",
-            //         "ChromeAndroid >= 78",
-            //         "Firefox >= 69",
-            //         "Safari >= 12",
-            //     ],
-            // },
+            // targets: "> 0.25%, not dead",
+            targets: {
+                "browsers": [
+                    "Chrome >= 78",
+                    "ChromeAndroid >= 78",
+                    "Firefox >= 69",
+                    "Safari >= 12",
+                ],
+            },
             useBuiltIns: "usage",
             corejs: 3,
             modules: false,

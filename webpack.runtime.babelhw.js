@@ -1,5 +1,5 @@
 const path = require('path');
-const babelConfig = require("./babel1.config");
+const babelConfig = require("./babel-configs/babelhw.config");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;   /* https://github.com/webpack-contrib/webpack-bundle-analyzer */
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 
@@ -7,17 +7,22 @@ const smp = new SpeedMeasurePlugin();
 const enableBundleAnalyzer = false;
 const mode = "production";
 
-/* Do not create an entry for vendors or other stuff that is not the starting point of execution. */
 const entry = {
-    post: [
-        "./dist-pre/pre.bundle.js"
+    babelhw: [
+        "./artifacts/esnext/game1/index.js",
+        "./artifacts/esnext/game2/index.js",
+        "./artifacts/esnext/game3/index.js",
+        "./artifacts/esnext/game4/index.js",
+        "./artifacts/esnext/game5/index.js",
+        "./artifacts/esnext/game6/index.js",
+        "./artifacts/esnext/game7/index.js",
     ],
 };
 
 const output = {
     module: true,
-    path: path.resolve(__dirname, 'dist-wp-wp'),
-    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, "dist-runtime-hw"),
+    filename: '[name].bundle.js',   // [name] is taken from entry
 };
 
 const plugins = [];
@@ -33,7 +38,7 @@ const moduleConfig = {
     rules: [{
         test: /\.(ts|js)x?$/,
         include: [
-            path.resolve(__dirname, "dist-pre"),
+            path.resolve(__dirname, "artifacts"),
             path.resolve(__dirname, "node_modules", "fastexponent")
         ],
         use: [
@@ -46,13 +51,16 @@ const moduleConfig = {
     }]
 };
 
+const optimization = {}
+
 const config = smp.wrap({
     "mode": mode,
     "entry": entry,
     "output": output,
     "plugins": plugins,
     "experiments": experiments,
-    "module": moduleConfig
+    "module": moduleConfig,
+    "optimization": optimization
 });
 
 module.exports = config;

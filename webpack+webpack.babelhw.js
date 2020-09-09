@@ -1,4 +1,5 @@
 const path = require('path');
+const babelConfig = require("./babel-configs/babelhw.config");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 
@@ -7,20 +8,14 @@ const enableBundleAnalyzer = false;
 const mode = "production";
 
 const entry = {
-    pre: [
-        "./artifacts/esnext/game1/index.js",
-        "./artifacts/esnext/game2/index.js",
-        "./artifacts/esnext/game3/index.js",
-        "./artifacts/esnext/game4/index.js",
-        "./artifacts/esnext/game5/index.js",
-        "./artifacts/esnext/game6/index.js",
-        "./artifacts/esnext/game7/index.js",
+    post: [
+        "./dist-pre/pre.bundle.js"
     ],
 };
 
 const output = {
     module: true,
-    path: path.resolve(__dirname, 'dist-pre'),
+    path: path.resolve(__dirname, 'dist-wp-wp-hw'),
     filename: '[name].bundle.js',
 };
 
@@ -33,9 +28,21 @@ const experiments = {
     "outputModule": true
 };
 
-const moduleConfig = {};
-
-const optimization = {};
+const moduleConfig = {
+    rules: [{
+        test: /\.(ts|js)x?$/,
+        include: [
+            path.resolve(__dirname, "dist-pre"),
+            path.resolve(__dirname, "node_modules", "fastexponent")
+        ],
+        use: [
+            {
+                loader: "babel-loader",
+                options: babelConfig
+            },
+        ]
+    }]
+};
 
 const config = smp.wrap({
     "mode": mode,
@@ -43,8 +50,7 @@ const config = smp.wrap({
     "output": output,
     "plugins": plugins,
     "experiments": experiments,
-    "module": moduleConfig,
-    "optimization": optimization
+    "module": moduleConfig
 });
 
 module.exports = config;

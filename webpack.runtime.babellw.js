@@ -1,8 +1,6 @@
 const path = require('path');
-const webpack = require('webpack');     /* to access built-in plugins */
-const babelConfig = require("./babel1.config");
+const babelConfig = require("./babel-configs/babellw.config");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;   /* https://github.com/webpack-contrib/webpack-bundle-analyzer */
-const TerserPlugin = require('terser-webpack-plugin');
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 
 const smp = new SpeedMeasurePlugin();
@@ -11,21 +9,21 @@ const mode = "production";  // mode = "development" : bundle is not minified
 
 /* Do not create an entry for vendors or other stuff that is not the starting point of execution. */
 const entry = {
-    babel1: [
-        "./artifacts/exnext/game1/index.js",
-        "./artifacts/exnext/game2/index.js",
-        "./artifacts/exnext/game3/index.js",
-        "./artifacts/exnext/game4/index.js",
-        "./artifacts/exnext/game5/index.js",
-        "./artifacts/exnext/game6/index.js",
-        "./artifacts/exnext/game7/index.js",
+    babellw: [
+        "./artifacts/esnext/game1/index.js",
+        "./artifacts/esnext/game2/index.js",
+        "./artifacts/esnext/game3/index.js",
+        "./artifacts/esnext/game4/index.js",
+        "./artifacts/esnext/game5/index.js",
+        "./artifacts/esnext/game6/index.js",
+        "./artifacts/esnext/game7/index.js",
     ],
 };
 
 const output = {
     /* Allow outputting JavaScript files as module type. It sets output.iife to false, output.libraryTarget to 'module', output.scriptType to 'module' and terserOptions.module to true. */
     module: true,
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist-runtime-lw'),
     filename: '[name].bundle.js',   // [name] is taken from entry
 };
 
