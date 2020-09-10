@@ -10,6 +10,7 @@
     "webpacksplit": "webpack --config webpack.splitchunks.js",
     "webpack-runtime-hw": "webpack --config webpack.runtime.babelhw.js",
     "webpack-runtime-lw": "webpack --config webpack.runtime.babellw.js",
+    "rollup-runtime-hw": "rollup --config rollup.runtime.babelhw.js",
     "webpack-pre": "webpack --config webpack.pre.js",
     "webpack-pre+webpack": "webpack --config webpack+webpack.babelhw.js",
     "webpack-pre+rollup": "rollup --config webpack+rollup.babelhw.js",
