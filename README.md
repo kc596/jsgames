@@ -164,6 +164,10 @@ this.el.style.top = `${y}px`;           //bugfix: true
 ## Webpack
 
 
+## Rollup
+
+Rollup can only do tree-shaking on ES modules
+
 ## Few unsupported syntax in older browsers
 
 And thus, require polyfills.

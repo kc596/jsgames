@@ -28,11 +28,14 @@ export default {
         commonjs(),
         multi(),
         babel({
-            babelHelpers: "bundled",
+            babelHelpers: "runtime",
             presets: presets,
+            plugins: plugins,
             include: [
-                "./artifacts/esnext/**/**",
+                "./artifacts/esnext/**",
+                "./node_modules/fastexponent/**"
             ],
+            babelrc: false
         })
     ]
 };
