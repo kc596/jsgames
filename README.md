@@ -162,7 +162,15 @@ this.el.style.top = `${y}px`;           //bugfix: true
 
 
 ## Webpack
-
+1. Only updating to Webpack `5.0.0 (beta30)` from `4.41.5` gave little size improvements `~1.5%`
+2. ```$js
+    const experiments = {
+        "outputModule": true
+    };
+    ```
+    And setting `output.module : true` in webpack config gives size improvements of `~1%`.
+ 
+3. Some problem in tree-shaking is there in webpack.
 
 ## Rollup
 
